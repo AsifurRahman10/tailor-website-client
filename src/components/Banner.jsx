@@ -48,7 +48,7 @@ export default function Banner() {
                 />
                 {/* Overlay Text */}
                 <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-white px-6">
-                  <h2 className="text-3xl md:text-5xl font-bold drop-shadow-lg tracking-wide md:tracking-[10px] lg:tracking-[16px]">
+                  <h2 className="text-3xl font-second md:text-5xl font-bold drop-shadow-lg tracking-wide md:tracking-[10px] lg:tracking-[16px]">
                     {item.title}
                   </h2>
                   <p className="mt-4 text-lg md:text-xl drop-shadow-lg w-11/12 lg:w-1/2 mx-auto text-gray-300">
