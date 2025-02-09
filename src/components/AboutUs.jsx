@@ -2,10 +2,10 @@ import aboutHero from "../assets/about/about-hero.jpg";
 
 export default function AboutUs() {
   return (
-    <div className="w-11/12 lg:w-9/12 mx-auto flex flex-col lg:flex-row justify-center items-center lg:max-h-screen gap-10">
+    <div className="w-11/12 lg:w-9/12 mx-auto flex flex-col lg:flex-row justify-center items-center gap-10 py-10 lg:py-0">
       {/* text part */}
 
-      <div className="flex-1 mt-10">
+      <div className="flex-1">
         <h2 className="text-4xl lg:text-6xl font-second text-red-600">
           About Our journey
         </h2>
@@ -55,7 +55,7 @@ export default function AboutUs() {
 
       {/* image part */}
       <div className="flex-1">
-        <img src={aboutHero} className="" alt="" />
+        <img src={aboutHero} className="max-h-screen" alt="" />
       </div>
     </div>
   );
