@@ -1,0 +1,62 @@
+[
+  {
+    "username": "John Doe",
+    "user_rating": 4.5,
+    "user_review": "Great service! The product quality exceeded my expectations.",
+    "user_image": "https://randomuser.me/api/portraits/men/1.jpg"
+  },
+  {
+    "username": "Emma Smith",
+    "user_rating": 5,
+    "user_review": "Absolutely loved it! Fast delivery and excellent quality.",
+    "user_image": "https://randomuser.me/api/portraits/women/2.jpg"
+  },
+  {
+    "username": "Michael Johnson",
+    "user_rating": 4,
+    "user_review": "Good experience overall. The packaging could be improved.",
+    "user_image": "https://randomuser.me/api/portraits/men/3.jpg"
+  },
+  {
+    "username": "Sophia Williams",
+    "user_rating": 5,
+    "user_review": "Fantastic! I will definitely recommend this to my friends.",
+    "user_image": "https://randomuser.me/api/portraits/women/4.jpg"
+  },
+  {
+    "username": "James Brown",
+    "user_rating": 3.5,
+    "user_review": "Decent product, but the shipping took longer than expected.",
+    "user_image": "https://randomuser.me/api/portraits/men/5.jpg"
+  },
+  {
+    "username": "Olivia Davis",
+    "user_rating": 4.8,
+    "user_review": "Amazing experience! The customer support was very helpful.",
+    "user_image": "https://randomuser.me/api/portraits/women/6.jpg"
+  },
+  {
+    "username": "William Martinez",
+    "user_rating": 4.2,
+    "user_review": "Very good, but I wish there were more customization options.",
+    "user_image": "https://randomuser.me/api/portraits/men/7.jpg"
+  },
+  {
+    "username": "Isabella Taylor",
+    "user_rating": 5,
+    "user_review": "This is exactly what I was looking for. Totally worth it!",
+    "user_image": "https://randomuser.me/api/portraits/women/8.jpg"
+  },
+  {
+    "username": "Ethan Anderson",
+    "user_rating": 3.8,
+    "user_review": "Not bad, but the price is a bit high for the quality.",
+    "user_image": "https://randomuser.me/api/portraits/men/9.jpg"
+  },
+  {
+    "username": "Mia Thomas",
+    "user_rating": 4.7,
+    "user_review": "Loved it! The interface is user-friendly and intuitive.",
+    "user_image": "https://randomuser.me/api/portraits/women/10.jpg"
+  }
+]
