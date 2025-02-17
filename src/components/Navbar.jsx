@@ -22,16 +22,37 @@ export default function Navbar() {
           Home
         </NavLink>
       </li>
+      <li className="relative group">
+        <NavLink
+          to="/category"
+          className="hover:text-gray-500 transition-colors duration-200"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
+          Category
+        </NavLink>
+        <div className="absolute left-0 hidden pt-2 space-y-2 bg-white border border-gray-200 rounded-md shadow-lg group-hover:block w-48 z-50 transition-opacity duration-300 opacity-0 group-hover:opacity-100">
+          <NavLink
+            to="/category/men"
+            className="block px-6 py-2 text-gray-800 hover:bg-gray-100 transition-colors duration-200"
+          >
+            Men
+          </NavLink>
+          <NavLink
+            to="/category/kids"
+            className="block px-6 py-2 text-gray-800 hover:bg-gray-100 transition-colors duration-200"
+          >
+            Kids
+          </NavLink>
+        </div>
+      </li>
+
       <li>
         <NavLink to="/appointment" className="hover:text-gray-500">
-          Book an appointment
+          Book appointment
         </NavLink>
       </li>
-      <li>
-        <NavLink to="/" className="hover:text-gray-500">
-          Home
-        </NavLink>
-      </li>
+
       <li>
         <NavLink to="/" className="hover:text-gray-500">
           Home
