@@ -23,8 +23,8 @@ export default function Navbar() {
         </NavLink>
       </li>
       <li>
-        <NavLink to="/" className="hover:text-gray-500">
-          Something
+        <NavLink to="/appointment" className="hover:text-gray-500">
+          Book an appointment
         </NavLink>
       </li>
       <li>
@@ -46,7 +46,7 @@ export default function Navbar() {
   );
   return (
     <div className="flex justify-between items-center py-8 w-11/12 lg:w-9/12 mx-auto">
-      <Link to="/" className="text-xl font-bold">
+      <Link to="/" className="text-2xl font-bold font-second">
         Khan Tailor
       </Link>
 

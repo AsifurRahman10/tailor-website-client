@@ -4,7 +4,7 @@ import service2 from "../assets/services/store.jpg";
 import service3 from "../assets/services/zardozi.jpg";
 export default function Service() {
   return (
-    <div className="flex flex-col justify-center items-center w-11/12 lg:w-9/12 mx-auto py-10">
+    <div className="flex flex-col justify-center items-center w-11/12 lg:w-9/12 mx-auto py-10 lg:py-20">
       <h2 className="text-4xl lg:text-6xl font-second text-red-600">
         Our Services
       </h2>
