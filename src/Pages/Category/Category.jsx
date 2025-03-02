@@ -1,6 +1,21 @@
+import { ServiceCard } from "@/components/ServiceCard";
+import { useQuery } from "@tanstack/react-query";
+import axios from "axios";
 import { useState } from "react";
 export default function Category() {
   const [selectedValue, setSelectedValue] = useState("");
+
+  const { data, isLoading } = useQuery({
+    queryKey: ["category"],
+    queryFn: async () => {
+      const res = await axios.get("/serviceData.json");
+      return res.data;
+    },
+  });
+  if (isLoading) {
+    return <p>Loading</p>;
+  }
+
   return (
     <div className="w-11/12 lg:w-9/12 mx-auto">
       <h3 className="text-center text-3xl font-semibold">Our category</h3>
@@ -23,6 +38,13 @@ export default function Category() {
               {option}
             </span>
           </label>
+        ))}
+      </div>
+
+      {/* display all data */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">
+        {data.map((serviceItem) => (
+          <ServiceCard key={serviceItem.id} serviceItem={serviceItem} />
         ))}
       </div>
     </div>

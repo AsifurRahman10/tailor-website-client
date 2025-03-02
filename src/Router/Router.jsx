@@ -3,7 +3,7 @@ import MainLayout from "../Layout/MainLayout";
 import Home from "../Pages/Home/Home";
 import Appointment from "@/Pages/Appointment/Appointment";
 import Category from "@/Pages/Category/Category";
-import CategoryType from "@/Pages/Appointment/CategoryType";
+import ServiceDetails from "@/Pages/ServiceDetails/ServiceDetails";
 
 export default function Router() {
   return (
@@ -12,7 +12,7 @@ export default function Router() {
         <Route index element={<Home />} />
         <Route path="/appointment" element={<Appointment />} />
         <Route path="/category" element={<Category />} />
-        <Route path="/category/:type" element={<CategoryType />} />
+        <Route path="/serviceDetails/:id" element={<ServiceDetails />} />
       </Route>
     </Routes>
   );

@@ -1,0 +1,93 @@
+[
+  {
+    "id": 1,
+    "image": "https://static-01.daraz.com.bd/p/fa2be68bbe7924dfec6ead4a94a2f1dd.jpg",
+    "serviceName": "Suit",
+    "category": "Men",
+    "colour": ["Red", "Yellow"],
+    "description": "Custom-tailored suits for men, available in a variety of fabrics and styles. Perfect for formal occasions, business meetings, or special events.",
+    "priceRange": "300 - 400"
+  },
+  {
+    "id": 2,
+
+    "image": "https://static-01.daraz.com.bd/p/fa2be68bbe7924dfec6ead4a94a2f1dd.jpg",
+    "serviceName": "Panjabi",
+    "category": "Men",
+    "colour": ["Blue", "White"],
+    "description": "Elegant and traditional Panjabi suits for men, crafted with precision and available in vibrant colors.",
+    "priceRange": "250 - 350"
+  },
+  {
+    "id": 3,
+    "image": "https://static-01.daraz.com.bd/p/fa2be68bbe7924dfec6ead4a94a2f1dd.jpg",
+    "serviceName": "Shirt",
+    "category": "Men",
+    "colour": ["Black", "Gray"],
+    "description": "Custom-fit shirts for men, made with high-quality fabrics and tailored to perfection.",
+    "priceRange": "200 - 300"
+  },
+  {
+    "id": 4,
+    "image": "https://static-01.daraz.com.bd/p/fa2be68bbe7924dfec6ead4a94a2f1dd.jpg",
+    "serviceName": "Kids Suit",
+    "category": "Kids",
+    "colour": ["Pink", "Blue"],
+    "description": "Adorable and comfortable suits for kids, designed for special occasions and everyday wear.",
+    "priceRange": "150 - 250"
+  },
+  {
+    "id": 5,
+    "image": "https://static-01.daraz.com.bd/p/fa2be68bbe7924dfec6ead4a94a2f1dd.jpg",
+    "serviceName": "Kids Panjabi",
+    "category": "Kids",
+    "colour": ["Green", "Yellow"],
+    "description": "Traditional Panjabi outfits for kids, perfect for cultural events and festivals.",
+    "priceRange": "100 - 200"
+  },
+  {
+    "id": 6,
+    "image": "https://static-01.daraz.com.bd/p/fa2be68bbe7924dfec6ead4a94a2f1dd.jpg",
+    "serviceName": "Men's Blazer",
+    "category": "Men",
+    "colour": ["Black", "Brown"],
+    "description": "Premium blazers for men, designed for a sharp and professional look.",
+    "priceRange": "400 - 500"
+  },
+  {
+    "id": 7,
+    "image": "https://static-01.daraz.com.bd/p/fa2be68bbe7924dfec6ead4a94a2f1dd.jpg",
+    "serviceName": "Kids Shirt",
+    "category": "Kids",
+    "colour": ["White", "Red"],
+    "description": "Comfortable and stylish shirts for kids, perfect for school and casual outings.",
+    "priceRange": "80 - 150"
+  },
+  {
+    "id": 8,
+    "image": "https://static-01.daraz.com.bd/p/fa2be68bbe7924dfec6ead4a94a2f1dd.jpg",
+    "serviceName": "Men's Waistcoat",
+    "category": "Men",
+    "colour": ["Gray", "Navy"],
+    "description": "Sleek and stylish waistcoats for men, ideal for formal events and weddings.",
+    "priceRange": "150 - 250"
+  },
+  {
+    "id": 9,
+    "image": "https://static-01.daraz.com.bd/p/fa2be68bbe7924dfec6ead4a94a2f1dd.jpg",
+    "serviceName": "Kids Blazer",
+    "category": "Kids",
+    "colour": ["Blue", "Black"],
+    "description": "Miniature blazers for kids, designed to make them look sharp and stylish.",
+    "priceRange": "120 - 200"
+  },
+  {
+    "id": 10,
+    "image": "https://static-01.daraz.com.bd/p/fa2be68bbe7924dfec6ead4a94a2f1dd.jpg",
+    "serviceName": "Men's Kurta",
+    "category": "Men",
+    "colour": ["White", "Maroon"],
+    "description": "Traditional kurtas for men, perfect for festivals and cultural events.",
+    "priceRange": "220 - 320"
+  }
+]
