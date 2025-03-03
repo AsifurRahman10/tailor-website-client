@@ -4,6 +4,7 @@ import Home from "../Pages/Home/Home";
 import Appointment from "@/Pages/Appointment/Appointment";
 import Category from "@/Pages/Category/Category";
 import ServiceDetails from "@/Pages/ServiceDetails/ServiceDetails";
+import Login from "@/Pages/Login/Login";
 
 export default function Router() {
   return (
@@ -11,6 +12,7 @@ export default function Router() {
       <Route path="/" element={<MainLayout />}>
         <Route index element={<Home />} />
         <Route path="/appointment" element={<Appointment />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/category" element={<Category />} />
         <Route path="/serviceDetails/:id" element={<ServiceDetails />} />
       </Route>

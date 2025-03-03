@@ -10,6 +10,8 @@ import {
   FaRegHeart,
 } from "react-icons/fa";
 import { RiTwitterXFill } from "react-icons/ri";
+import { Toaster } from "@/components/ui/sonner";
+import { toast } from "sonner";
 
 export default function ServiceDetails() {
   const { id } = useParams();
@@ -26,6 +28,13 @@ export default function ServiceDetails() {
     { Navy: "#000080" },
     { Maroon: "#800000" },
   ];
+
+  const handleBooking = () => {
+    toast("✅ Your booking has been successful, we will contract you soon");
+  };
+  const handleLike = () => {
+    toast("✅ Added to wishlist");
+  };
 
   const { data, isLoading } = useQuery({
     queryKey: ["category"],
@@ -92,10 +101,13 @@ export default function ServiceDetails() {
             </div>
           </div>
           <div className="flex items-center gap-4 py-4">
-            <Button className="bg-black px-6 h-[55px] w-[500px] font-bold rounded-full">
+            <Button
+              onClick={handleBooking}
+              className="bg-black px-6 h-[55px] w-[500px] font-bold rounded-full"
+            >
               Book Order
             </Button>
-            <Button className="bg-[#c3c3c3] px-6 h-[55px]">
+            <Button onClick={handleLike} className="bg-[#c3c3c3] px-6 h-[55px]">
               <FaRegHeart className="text-black hover:text-white" />
             </Button>
           </div>
@@ -156,6 +168,7 @@ export default function ServiceDetails() {
           </div>
         </div>
       </div>
+      <Toaster />
     </div>
   );
 }

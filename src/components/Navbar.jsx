@@ -76,7 +76,9 @@ export default function Navbar() {
 
       {/* last part */}
       <div className="hidden md:block">
-        <Button>Login</Button>
+        <Link to={"/login"}>
+          <Button>Login</Button>
+        </Link>
       </div>
       <div className="block md:hidden">
         <Drawer onOpenChange={(open) => setIsOpen(open)}>
@@ -95,7 +97,9 @@ export default function Navbar() {
               <DrawerDescription>
                 <div>
                   <ul className="space-y-4 mb-4">{navList}</ul>
-                  <Button className="px-8">Login</Button>
+                  <Link to={"/login"}>
+                    <Button className="px-8">Login</Button>
+                  </Link>
                 </div>
               </DrawerDescription>
             </DrawerHeader>
