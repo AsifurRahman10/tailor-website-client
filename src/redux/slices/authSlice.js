@@ -90,14 +90,19 @@ export default authSlice.reducer;
 export const observe = () => (dispatch) => {
     dispatch(setLoading(true));
 
-    const unsubscribe = onAuthStateChanged(auth, currentUser => {
-        if (currentUser && currentUser?.email) {
-            dispatch(setUser(currentUser));
-        }
-        else {
-            dispatch(setUser(null));
-        }
-        dispatch(setLoading(false));
-    })
-    return unsubscribe;
+    try {
+        const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+            if (currentUser && currentUser?.email) {
+                dispatch(setUser(currentUser));
+            } else {
+                dispatch(setUser(null));
+            }
+            dispatch(setLoading(false));
+        });
+
+        return unsubscribe;
+    } catch (error) {
+        console.error("Error observing auth state:", error);
+        dispatch(setLoading(false)); // Ensure loading is set to false on error
+    }
 }

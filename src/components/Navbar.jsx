@@ -12,9 +12,49 @@ import {
 } from "@/components/ui/drawer";
 import { IoCloseSharp, IoMenuOutline } from "react-icons/io5";
 import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "./ui/dropdown-menu";
+import { logOut } from "@/redux/slices/authSlice";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const { user } = useSelector((state) => state.auth);
+  const dispatch = useDispatch();
+
+  const profileDropdown = (
+    <>
+      <DropdownMenu>
+        <DropdownMenuTrigger>
+          <Avatar className="lg:w-[50px] lg:h-[50px]">
+            <AvatarImage
+              className="object-cover scale-125"
+              src={user?.photoURL}
+            />
+            <AvatarFallback>CN</AvatarFallback>
+          </Avatar>
+        </DropdownMenuTrigger>
+        <DropdownMenuContent>
+          <DropdownMenuLabel className="">
+            Name : {user?.displayName}
+          </DropdownMenuLabel>
+          <DropdownMenuSeparator />
+          <DropdownMenuItem>Profile</DropdownMenuItem>
+          <DropdownMenuItem>Dashboard</DropdownMenuItem>
+          <DropdownMenuItem onClick={() => dispatch(logOut())}>
+            Signout
+          </DropdownMenuItem>
+        </DropdownMenuContent>
+      </DropdownMenu>
+    </>
+  );
   const navList = (
     <>
       <li>
@@ -76,11 +116,16 @@ export default function Navbar() {
 
       {/* last part */}
       <div className="hidden md:block">
-        <Link to={"/login"}>
-          <Button>Login</Button>
-        </Link>
+        {user ? (
+          profileDropdown
+        ) : (
+          <Link to={"/login"}>
+            <Button>Login</Button>
+          </Link>
+        )}
       </div>
-      <div className="block md:hidden">
+      <div className="flex md:hidden items-center gap-4">
+        {user && profileDropdown}
         <Drawer onOpenChange={(open) => setIsOpen(open)}>
           <DrawerTrigger>
             {isOpen ? (
