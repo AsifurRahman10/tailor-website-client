@@ -3,16 +3,27 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Separator } from "@/components/ui/separator";
+import { emailLogin } from "@/redux/slices/authSlice";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { FaRegEye } from "react-icons/fa";
-import { Link } from "react-router";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, useNavigate } from "react-router";
 
 export default function Login() {
+  const navigate = useNavigate();
   const [showPass, setShowPass] = useState(false);
   const { register, handleSubmit } = useForm();
+  const dispatch = useDispatch();
 
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = async (data) => {
+    const status = await dispatch(
+      emailLogin({ email: data?.email, password: data.password })
+    ).unwrap();
+    if (status) {
+      navigate("/");
+    }
+  };
   return (
     <div className="w-11/12 lg:w-1/3 mx-auto">
       <SocialLogin />

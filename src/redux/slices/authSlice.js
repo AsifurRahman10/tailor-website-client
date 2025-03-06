@@ -49,6 +49,7 @@ export const logOut = createAsyncThunk('auth/signOut', async () => {
 })
 
 
+
 const authSlice = createSlice({
     name: 'auth',
     initialState: {
@@ -56,9 +57,12 @@ const authSlice = createSlice({
         loading: true,
     },
     reducers: {
+        setLoading: (state, action) => {
+            state.loading = action.payload;
+        },
         setUser: (state, action) => {
             state.user = action.payload;
-        }
+        },
     },
     extraReducers: (builder) => {
         builder
@@ -74,11 +78,26 @@ const authSlice = createSlice({
             .addCase(updateUserProfile.fulfilled, (state, action) => {
                 state.user = { ...state.user, ...action.payload }
             })
-            .addCase(logOut.fulfilled, (state, action) => {
+            .addCase(logOut.fulfilled, (state) => {
                 state.user = null;
             })
     }
 })
 
-export const { setUser } = authSlice.actions;
+export const { setUser, setLoading } = authSlice.actions;
 export default authSlice.reducer;
+
+export const observe = () => (dispatch) => {
+    dispatch(setLoading(true));
+
+    const unsubscribe = onAuthStateChanged(auth, currentUser => {
+        if (currentUser && currentUser?.email) {
+            dispatch(setUser(currentUser));
+        }
+        else {
+            dispatch(setUser(null));
+        }
+        dispatch(setLoading(false));
+    })
+    return unsubscribe;
+}

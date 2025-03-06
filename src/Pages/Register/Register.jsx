@@ -14,7 +14,6 @@ import { Link, useNavigate } from "react-router";
 import { toast } from "sonner";
 
 export const Register = () => {
-  const { user } = useSelector((state) => state.auth);
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const {
