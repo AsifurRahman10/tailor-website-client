@@ -28,7 +28,6 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const { user } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
-  console.log(user);
 
   const profileDropdown = (
     <>
@@ -95,8 +94,8 @@ export default function Navbar() {
       </li>
 
       <li>
-        <NavLink to="/" className="hover:text-gray-500">
-          Home
+        <NavLink to="/about-us" className="hover:text-gray-500">
+          About us
         </NavLink>
       </li>
       <li>
@@ -107,7 +106,7 @@ export default function Navbar() {
     </>
   );
   return (
-    <div className="flex justify-between items-center py-8 w-11/12 lg:w-9/12 mx-auto">
+    <div className="flex justify-between items-center py-8 w-11/12 lg:w-9/12 mx-auto ">
       <Link to="/" className="text-2xl font-bold font-second">
         Khan Tailor
       </Link>
