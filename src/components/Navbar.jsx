@@ -28,6 +28,7 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const { user } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
+  console.log(user);
 
   const profileDropdown = (
     <>

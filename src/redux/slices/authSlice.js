@@ -92,7 +92,7 @@ export const observe = () => (dispatch) => {
 
     try {
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-            if (currentUser && currentUser?.email) {
+            if (currentUser && currentUser?.photoURL) {
                 dispatch(setUser(currentUser));
             } else {
                 dispatch(setUser(null));

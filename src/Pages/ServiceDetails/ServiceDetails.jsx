@@ -12,9 +12,27 @@ import {
 import { RiTwitterXFill } from "react-icons/ri";
 import { Toaster } from "@/components/ui/sonner";
 import { toast } from "sonner";
+import {
+  Dialog,
+  DialogClose,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import { Label } from "@/components/ui/label";
+import { Input } from "@/components/ui/input";
+import { useSelector } from "react-redux";
+import DatePicker from "@/components/DatePicker";
+import { useState } from "react";
+import { useForm } from "react-hook-form";
 
 export default function ServiceDetails() {
+  const { user } = useSelector((state) => state.auth);
   const { id } = useParams();
+  const [date, setDate] = useState(new Date());
   const colors = [
     { Red: "#FF0000" },
     { Yellow: "#FFFF00" },
@@ -28,10 +46,12 @@ export default function ServiceDetails() {
     { Navy: "#000080" },
     { Maroon: "#800000" },
   ];
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
 
-  const handleBooking = () => {
-    toast("✅ Your booking has been successful, we will contract you soon");
-  };
   const handleLike = () => {
     toast("✅ Added to wishlist");
   };
@@ -48,6 +68,18 @@ export default function ServiceDetails() {
   }
   const detailsData = data.find((item) => item.id == id);
   const { image, serviceName, priceRange, description, colour } = detailsData;
+
+  // confirm booking
+  const onSubmit = (data) => {
+    const BookingData = {
+      customerName: user?.displayName,
+      address: data?.address,
+      date: date,
+      time: data?.time,
+    };
+    console.log(BookingData);
+    toast("✅ Your booking has been successful, we will contract you soon");
+  };
   return (
     <div className="w-11/12 lg:w-9/12 mx-auto">
       <p className="text-4xl text-center py-12">Product Name : {serviceName}</p>
@@ -56,7 +88,6 @@ export default function ServiceDetails() {
       <div className="flex flex-col lg:flex-row gap-6 items-stretch lg:h-[700px]">
         <div className="flex-1 flex items-center justify-center">
           <div className="w-full h-full flex items-center">
-            {/* Added full width/height and flex */}
             <ReactImageMagnify
               {...{
                 smallImage: {
@@ -101,15 +132,78 @@ export default function ServiceDetails() {
             </div>
           </div>
           <div className="flex items-center gap-4 py-4">
-            <Button
-              onClick={handleBooking}
-              className="bg-black px-6 h-[55px] w-[500px] font-bold rounded-full"
-            >
-              Book Order
-            </Button>
-            <Button onClick={handleLike} className="bg-[#c3c3c3] px-6 h-[55px]">
-              <FaRegHeart className="text-black hover:text-white" />
-            </Button>
+            <Dialog>
+              <DialogTrigger asChild>
+                <Button
+                  // onClick={handleBooking}
+                  className="bg-black px-6 h-[55px] w-[500px] font-bold rounded-full"
+                >
+                  Book Order
+                </Button>
+              </DialogTrigger>
+
+              <DialogContent className="sm:max-w-[425px]">
+                <DialogHeader>
+                  <DialogTitle>Confirm booking</DialogTitle>
+                  <DialogDescription>
+                    Please fill up the form and we will be available on your
+                    desire time.
+                  </DialogDescription>
+                </DialogHeader>
+                <form onSubmit={handleSubmit(onSubmit)}>
+                  <div className="grid gap-4 py-4">
+                    <div className="grid grid-cols-4 items-center gap-4">
+                      <Label htmlFor="name" className="text-right">
+                        Name
+                      </Label>
+                      <Input value={user?.email} className="col-span-3" />
+                    </div>
+                    <div className="grid grid-cols-4 items-center gap-4">
+                      <Label className="text-right">Address</Label>
+                      <Input
+                        {...register("address", { required: true })}
+                        className="col-span-3"
+                      />
+                    </div>
+                    <div className="grid grid-cols-4 items-center gap-4">
+                      <Label className="text-right">Date</Label>
+                      <div className="col-span-3">
+                        <DatePicker
+                          className="w-full"
+                          date={date}
+                          setDate={setDate}
+                          {...register("date", { required: true })}
+                        />
+                      </div>
+                    </div>
+                    <div className="grid grid-cols-4 items-center gap-4">
+                      <Label className="text-right">Time</Label>
+                      <Input
+                        type="time"
+                        {...register("time", { required: true })}
+                        className="col-span-3"
+                      />
+                    </div>
+                  </div>
+
+                  <DialogFooter>
+                    {/* <DialogClose asChild> */}
+                    <Button className="w-full" type="submit">
+                      Confirm Booking
+                    </Button>
+                    {/* </DialogClose> */}
+                  </DialogFooter>
+                </form>
+              </DialogContent>
+
+              {/* wishlist */}
+              <Button
+                onClick={handleLike}
+                className="bg-[#c3c3c3] px-6 h-[55px]"
+              >
+                <FaRegHeart className="text-black hover:text-white" />
+              </Button>
+            </Dialog>
           </div>
           <div className="space-y-4 rounded-lg bg-white">
             <h2 className="text-xl font-semibold text-gray-800 my-3">
