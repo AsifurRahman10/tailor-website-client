@@ -38,14 +38,7 @@ export const Register = () => {
         ).unwrap();
         if (update) {
           navigate("/");
-          toast(
-            {
-              title: "Registration successful",
-            },
-            {
-              position: "top-center",
-            }
-          );
+          // toast("Registration successful");
         }
       }
     } catch (error) {
@@ -55,7 +48,7 @@ export const Register = () => {
 
   return (
     <div className="w-11/12 lg:w-1/3 mx-auto">
-      <Toaster />
+      <Toaster position="top-center" />
       <SocialLogin />
 
       <Separator className="my-10" />
